@@ -1,0 +1,42 @@
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+.btn {
+    background-color: #817676;
+    border: 1px solid transparent;
+}
+
+a[_ngcontent-umc-c105] {
+    color: #000000;
+    text-decoration: none;
+}
+
+.my-image {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
+}
+
+.my-img1 {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+}
+
+.center-nav {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: auto;
+    max-width: 200px;
+    text-align: center;
+}
+
+.center-nav li {
+    text-align: center;
+    width: none;
+    display: inline-block;
+}

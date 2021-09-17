@@ -6,13 +6,17 @@ import { AppComponent } from './app.component';
 import { PizzasComponent } from './pizzas/pizzas.component';
 import { NavBarComponent } from './NavBar/NavBar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FooterComponent } from './Footer/Footer.component';
+import { HomeComponent } from './Home/Home.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [				
     AppComponent,
       PizzasComponent,
       PizzasComponent,
-      NavBarComponent
+      NavBarComponent,
+      FooterComponent,
+      HomeComponent
    ],
   imports: [
     BrowserModule,
