@@ -1,26 +1,14 @@
-<nav class="navbar navbar-expand-lg" style="background-color: #E88D07;">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="#">
-            <img src="assets/img/favicon.svg" class="my-image">
-        </a>
-        <a class="navbar-brand" href="#">{{titulo}}</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg" style="background-color: #cf712d;">
+    <a class="navbar-brand" href="#">
+        <img src="assets/img/favicon.svg" width="30" height="30" class="d-inline-block align-top" alt=""> {{titulo}}
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Alterna navegação">
       <span class="navbar-toggler-icon"></span>
     </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="display: inline-block;">
-            <ul class="nav navbar-nav center-nav">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Pizzas</a>
-                </li>
-                <li class="nav-item" style="position: relative; left: 620%; margin-left: -50px;">
-                    <a class="nav-link" href="#">
-                        <img src="assets/img/carrinho.svg" class="my-img1">
-                    </a>
-                </li>
-            </ul>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" routerLink="home" routerLinkActive="active">Home <span class="sr-only">(Página atual)</span></a>
+            <a class="nav-item nav-link" routerLink="pizzas" routerLinkActive="active">Pizzas</a>
         </div>
     </div>
 </nav>

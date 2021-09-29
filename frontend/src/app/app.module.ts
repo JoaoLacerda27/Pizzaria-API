@@ -3,25 +3,28 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PizzasComponent } from './pizzas/pizzas.component';
 import { NavBarComponent } from './NavBar/NavBar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './Footer/Footer.component';
+import { PizzaComponent } from './Pizza/Pizza.component';
 import { HomeComponent } from './Home/Home.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
+import { ComprasComponent } from './Compras/Compras.component';
 
 @NgModule({
-  declarations: [				
+  declarations: [							
     AppComponent,
-      PizzasComponent,
-      PizzasComponent,
       NavBarComponent,
       FooterComponent,
-      HomeComponent
+      PizzaComponent,
+      HomeComponent,
+      ComprasComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
