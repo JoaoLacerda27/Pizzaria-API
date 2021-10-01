@@ -1,27 +1,21 @@
-<div class="col-md" style="margin-top: 20px;">
-    <form>
+<div class="formGroup" style="margin-top: 20px;">
+    <form [formGroup]="formCliente" (ngSubmit)="onSubmit()" class="needs-validation was-validated" novalidate="">
         <div class="form-row">
             <div class="col-md-4 mb-3">
-                <label for="validationServer01">Primeiro nome</label>
-                <input type="text" class="form-control is-valid" id="validationServer01" placeholder="Nome" required>
-                <div class="valid-feedback">
-                    Tudo certo!
-                </div>
+                <label for="validationCustom01">Primeiro nome</label>
+                <input type="text" class="form-control" id="validationCustom01" placeholder="Nome" required name="nome" formControlName="nome">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="validationServer02">Sobrenome</label>
-                <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Sobrenome" required>
-                <div class="valid-feedback">
-                    Tudo certo!
-                </div>
+                <label for="validationCustom02">Sobrenome</label>
+                <input type="text" class="form-control is-valid" id="validationCustom02" placeholder="Sobrenome" required formControlName="sobrenome">
             </div>
             <div class="col-md-4 mb-3">
-                <label for="validationServerUsername">Usuário</label>
+                <label for="validationCustomUsername">Usuário</label>
                 <div class="input-group">
                     <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroupPrepend3">@</span>
+                        <span class="input-group-text" id="inputGroupPrepend">@</span>
                     </div>
-                    <input type="text" class="form-control is-invalid" id="validationServerUsername" placeholder="Usuário" aria-describedby="inputGroupPrepend3" required>
+                    <input type="text" class="form-control is-invalid" id="validationCustomUsername" placeholder="Usuário" aria-describedby="inputGroupPrepend" required formControlName="usuario">
                     <div class="invalid-feedback">
                         Por favor, escolha um nome de usuário.
                     </div>
@@ -30,29 +24,30 @@
         </div>
         <div class="form-row">
             <div class="col-md-6 mb-3">
-                <label for="validationServer03">Cidade</label>
-                <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Cidade" required>
+                <label for="validationCustom03">Cidade</label>
+                <input type="text" class="form-control" id="validationCustom03" placeholder="Cidade" required formControlName="cidade">
                 <div class="invalid-feedback">
                     Por favor, informe uma cidade válida.
                 </div>
             </div>
             <div class="col-md-3 mb-3">
-                <label for="validationServer04">Estado</label>
-                <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="Estado" required>
+                <label for="validationCustom04">Estado</label>
+                <input type="text" class="form-control" id="validationCustom04" placeholder="Estado" required formControlName="estado">
                 <div class="invalid-feedback">
                     Por favor, informe um estado válido.
                 </div>
             </div>
             <div class="col-md-3 mb-3">
-                <label for="validationServer05">CEP</label>
-                <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="CEP" required>
+                <label for="validationCustom05">CEP</label>
+                <input type="text" class="form-control" id="validationCustom05" placeholder="CEP" required formControlName="cep">
                 <div class="invalid-feedback">
                     Por favor, informe um CEP válido.
                 </div>
             </div>
+
             <div class="col-md-6 mb-3">
-                <label for="validationServer03">Pizza</label>
-                <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Pizza" required>
+                <label for="validationCustom06">Pizza</label>
+                <input type="text" class="form-control" id="validationCustom06" placeholder="Pizza" disabled>
             </div>
             <div class="col-md-3 mb-3">
                 <label for="validationServer03">Quantidade</label>
@@ -64,18 +59,48 @@
               <option value="5">5</option>
             </select>
             </div>
+
+
+            <div class="col-md-3 mb-3">
+                <label for="validationCustom07">Total</label>
+                <input type="text" class="form-control" id="validationCustom07" placeholder="Total" formControlName="total">
+            </div>
+
         </div>
+
         <div class="form-group">
             <div class="form-check">
-                <input class="form-check-input is-invalid" type="checkbox" value="" id="invalidCheck3" required>
-                <label class="form-check-label" for="invalidCheck3">
-        Concordo que todas as informações inseridas são veridicas
-      </label>
+                <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                <label class="form-check-label" for="invalidCheck">
+                    Concordo que todas as informações inseridas são veridicas
+                 </label>
                 <div class="invalid-feedback">
                     Você deve concordar, antes de continuar.
                 </div>
             </div>
         </div>
-        <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">Comprar</button>
+
+        <button type="submit" class="btn btn-outline-info" data-toggle="modaL" aria-pressed="false " autocomplete="off">Comprar</button>
+
     </form>
+    <script>
+        // Exemplo de JavaScript inicial para desativar envios de formulário, se houver campos inválidos.
+        (function() {
+            'use strict';
+            window.addEventListener('load', function() {
+                // Pega todos os formulários que nós queremos aplicar estilos de validação Bootstrap personalizados.
+                var forms = document.getElementsByClassName('needs-validation');
+                // Faz um loop neles e evita o envio
+                var validation = Array.prototype.filter.call(forms, function(form) {
+                    form.addEventListener('submit', function(event) {
+                        if (form.checkValidity() === false) {
+                            event.preventDefault();
+                            event.stopPropagation();
+                        }
+                        form.classList.add('was-validated');
+                    }, false);
+                });
+            }, false);
+        })();
+    </script>
 </div>
