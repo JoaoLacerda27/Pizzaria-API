@@ -1,13 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace backend.Models
+namespace backend.Model
 {
     public class Cliente
     {
-        public int Id { get; set; }
+        [Key]
+        public int PedidoId { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Usuario { get; set; }
@@ -15,17 +17,16 @@ namespace backend.Models
         public string Estado { get; set; }
         public int Cep { get; set; }
         public int Quantidade { get; set; }
-        public int Total { get; set; }
-        public Pizza Pizza { get; set; }
+        public double Total { get; set; }
+        public int PizzaId { get; set; }
 
         public Cliente()
         {
 
         }
-
-        public Cliente(int id, string firstName, string lastName, string usuario, string cidade, string estado, int cep, int quantidade, int total, Pizza pizza)
+        public Cliente(int pedidoId, string firstName, string lastName, string usuario, string cidade, string estado, int cep, int quantidade, int total, int pizzaId)
         {
-            Id = id;
+            PedidoId = pedidoId;
             FirstName = firstName;
             LastName = lastName;
             Usuario = usuario;
@@ -34,7 +35,7 @@ namespace backend.Models
             Cep = cep;
             Quantidade = quantidade;
             Total = total;
-            Pizza = pizza;
+            PizzaId = pizzaId;
         }
     }
 }

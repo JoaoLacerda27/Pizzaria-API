@@ -28,7 +28,6 @@ import { ComprasComponent } from './Compras/Compras.component';
     NgbModule,
     ModalModule.forRoot(),
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

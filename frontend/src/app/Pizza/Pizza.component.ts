@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Pizza } from '../Models/Pizza';
 
 @Component({
   selector: 'app-Pizza',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./Pizza.component.css']
 })
 export class PizzaComponent implements OnInit {
+
+  pizzas : Pizza[];
 
   constructor() { }
 
