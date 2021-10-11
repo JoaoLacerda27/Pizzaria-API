@@ -17,22 +17,16 @@ namespace backend.Services
             _context = context;
         }
 
-        public List<Pizza> FindAll()
-        {
-            return _context.Pizza.ToList();
-        }
-
-       /* public async Task<Pizza> FindByIdAsync(int id)
-        {
-            
-            return await _context.Pizza.FirstOrDefault(obj => obj.Id == id);
-        }
-
         public async Task<List<Pizza>> FindAllAsync()
         {
             return await _context.Pizza.ToListAsync();
-        }*/
+        }
 
+        public async Task<Pizza> FindByIdAsync(int id)
+        {
+            return await _context.Pizza.FirstOrDefaultAsync(obj => obj.Id == id);
+
+        }
 
     }
 }

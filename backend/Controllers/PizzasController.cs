@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using backend.Model;
 using backend.Services;
+using Microsoft.AspNetCore.Cors;
 
 namespace backend.Controllers
 {
@@ -23,11 +24,20 @@ namespace backend.Controllers
         }
 
         [HttpGet]
-        public IActionResult Pizzas()
+        [EnableCors("AllowOrigin")]
+        public async Task<IActionResult> Pizzas()
         {
-            var list = _pizzaService.FindAll();
+            var list = await _pizzaService.FindAllAsync();
             return Ok(list);
         }
 
+        [HttpGet("{id}")]
+        [EnableCors("AllowOrigin")]
+        public async Task<IActionResult> Pizzas(int id)
+        {
+            var obj = await _pizzaService.FindByIdAsync(id);
+            return Ok(obj);
+        }
     }
+
 }

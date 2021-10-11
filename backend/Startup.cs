@@ -39,7 +39,10 @@ namespace backend
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(options =>
+            options.JsonSerializerOptions.PropertyNameCaseInsensitive = true
+            );
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "backend", Version = "v1" });
@@ -51,7 +54,13 @@ namespace backend
 
             services.AddScoped<SeedingService>();
             services.AddScoped<PizzaService>();
-                   
+
+            services.AddCors(options =>
+            options.AddPolicy("AllowSpecific", p => p.WithOrigins("http://localhost:4200/")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            ));
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -76,6 +85,13 @@ namespace backend
             {
                 endpoints.MapControllers();
             });
+
+            app.UseCors(x => x
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+
+            app.UseHttpsRedirection();
         }
     }
 }
