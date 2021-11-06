@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { Observable } from 'rxjs';
+import { Pizza } from '../Models/Pizza';
+import { ClienteService } from '../Services/cliente.service';
 
 @Component({
   selector: 'app-Compras',
@@ -8,12 +13,37 @@ import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms'
 })
 export class ComprasComponent implements OnInit {
 
+  pizzas : any;
+  erro : any;
+  id : any;
+  inscricao : Subscription;
+
   public formCliente: FormGroup;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, 
+    private clienteService : ClienteService, 
+    private route : ActivatedRoute) {
+
+   }
+
 
   ngOnInit() {
     this.createForm(new Cliente());
+
+    this.id = this.route.snapshot.paramMap.get('id');
+
+    this.getPizza();
+  
+  }
+
+  getPizza(){
+    this.clienteService.listarPizza(this.id).subscribe(
+      (data : Pizza )=>{
+        this.pizzas = data;
+    }, (error : any) =>{
+      this.erro = error;
+      console.error('ERROR' , error);
+    });
   }
 
   createForm(cliente: Cliente){

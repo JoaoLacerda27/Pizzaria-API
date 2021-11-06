@@ -47,7 +47,7 @@
 
             <div class="col-md-6 mb-3">
                 <label for="validationCustom06">Pizza</label>
-                <input type="text" class="form-control" id="validationCustom06" placeholder="Pizza" disabled>
+                <input type="text" class="form-control" id="validationCustom06" placeholder="Pizza" value="{{pizzas.sabor}}" disabled>
             </div>
             <div class="col-md-3 mb-3">
                 <label for="validationServer03">Quantidade</label>
@@ -63,7 +63,7 @@
 
             <div class="col-md-3 mb-3">
                 <label for="validationCustom07">Total</label>
-                <input type="text" class="form-control" id="validationCustom07" placeholder="Total" formControlName="total">
+                <input type="text" class="form-control" id="validationCustom07" placeholder="Total" value="{{pizzas.preco}}" disabled>
             </div>
 
         </div>
@@ -102,5 +102,9 @@
                 });
             }, false);
         })();
+
+        (function multValue() {
+
+        })
     </script>
 </div>

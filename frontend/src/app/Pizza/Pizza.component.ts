@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Pizza } from '../Models/Pizza';
+import { ClienteService } from '../Services/cliente.service';
 import { PizzaService } from '../Services/pizza.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class PizzaComponent implements OnInit {
   pizzas : any;
   erro : any;
 
-  constructor(private pizzaService: PizzaService) {
+  constructor(private pizzaService: PizzaService){
     this.getPizza();
    }
 

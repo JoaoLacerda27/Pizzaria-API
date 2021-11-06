@@ -1,9 +1,8 @@
 <div class="album py-5 bg-light">
-    <div class="container">
-
-        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+    <div class="grid">
+        <div *ngFor="let pizza of pizzas">
             <div class="col">
-                <div class="card">
+                <div class="card" id="top">
                     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
                         <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg" class="img-fluid" />
                         <a href="#!">
@@ -11,210 +10,17 @@
                         </a>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">{{pizzas.sabor}}</h5>
+                        <h5 class="card-title">{{pizza.sabor}}</h5>
                         <p class="card-text">
-                            {{pizzas.descricao}}
+                            {{pizza.descricao}}
                         </p>
                         <div class="d-flex justify-content-between align-items-center">
                             <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
+                                <button type="submit" [routerLink]="['/compras/', pizza.id]" class="btn btn-outline-info" data-toggle="button" aria-pressed="false " autocomplete="off " ng-click="setID(pizza.id)">
                                     Comprar
                                 </button>
                             </div>
-                            <small class="text-muted ">38,90 R$</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col ">
-                <div class="card ">
-                    <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg " class="img-fluid " />
-                        <a href="#! ">
-                            <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
-                        </a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center ">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
-                                    Comprar
-                                </button>
-                            </div>
-                            <small class="text-muted ">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col ">
-                <div class="card ">
-                    <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg " class="img-fluid " />
-                        <a href="#! ">
-                            <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
-                        </a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center ">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
-                                    Comprar
-                                </button>
-                            </div>
-                            <small class="text-muted ">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col ">
-                <div class="card ">
-                    <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg " class="img-fluid " />
-                        <a href="#! ">
-                            <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
-                        </a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center ">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
-                                    Comprar
-                                </button>
-                            </div>
-                            <small class="text-muted ">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col ">
-                <div class="card ">
-                    <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg " class="img-fluid " />
-                        <a href="#! ">
-                            <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
-                        </a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center ">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
-                                    Comprar
-                                </button>
-                            </div>
-                            <small class="text-muted ">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col ">
-                <div class="card ">
-                    <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg " class="img-fluid " />
-                        <a href="#! ">
-                            <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
-                        </a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center ">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
-                                    Comprar
-                                </button>
-                            </div>
-                            <small class="text-muted ">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col ">
-                <div class="card ">
-                    <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg " class="img-fluid " />
-                        <a href="#! ">
-                            <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
-                        </a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center ">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
-                                    Comprar
-                                </button>
-                            </div>
-                            <small class="text-muted ">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col ">
-                <div class="card ">
-                    <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg " class="img-fluid " />
-                        <a href="#! ">
-                            <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
-                        </a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center ">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
-                                    Comprar
-                                </button>
-                            </div>
-                            <small class="text-muted ">9 mins</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col ">
-                <div class="card ">
-                    <div class="bg-image hover-overlay ripple " data-mdb-ripple-color="light ">
-                        <img src="https://mdbootstrap.com/img/new/standard/nature/111.jpg " class="img-fluid " />
-                        <a href="#! ">
-                            <div class="mask " style="background-color: rgba(251, 251, 251, 0.15); "></div>
-                        </a>
-                    </div>
-                    <div class="card-body ">
-                        <h5 class="card-title ">Card title</h5>
-                        <p class="card-text ">
-                            Some quick example text to build on the card title and make up the bulk of the card's content.
-                        </p>
-                        <div class="d-flex justify-content-between align-items-center ">
-                            <div class="btn-group">
-                                <button type="button" class="btn btn-outline-info" data-toggle="button " aria-pressed="false " autocomplete="off ">
-                                    Comprar
-                                </button>
-                            </div>
-                            <small class="text-muted ">9 mins</small>
+                            <small class="text-muted ">{{pizza.preco}} R$</small>
                         </div>
                     </div>
                 </div>

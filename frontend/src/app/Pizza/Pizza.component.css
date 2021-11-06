@@ -3,3 +3,13 @@ small {
     font-size: 120%;
     font-weight: 400;
 }
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 8fr);
+    /* Create 2 columns and auto-place rows */
+}
+
+#top {
+    margin-top: 10px;
+}

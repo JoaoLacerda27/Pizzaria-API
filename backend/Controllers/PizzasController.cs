@@ -24,7 +24,6 @@ namespace backend.Controllers
         }
 
         [HttpGet]
-        [EnableCors("AllowOrigin")]
         public async Task<IActionResult> Pizzas()
         {
             var list = await _pizzaService.FindAllAsync();
@@ -32,7 +31,6 @@ namespace backend.Controllers
         }
 
         [HttpGet("{id}")]
-        [EnableCors("AllowOrigin")]
         public async Task<IActionResult> Pizzas(int id)
         {
             var obj = await _pizzaService.FindByIdAsync(id);

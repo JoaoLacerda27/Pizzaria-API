@@ -8,7 +8,8 @@ const routes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'pizzas', component: PizzaComponent},
   {path: 'home', component: HomeComponent},
-  {path: 'compras', component: ComprasComponent}
+  {path: 'compras', component: ComprasComponent},
+  {path: 'compras/:id', component: ComprasComponent}
   ];
 
 @NgModule({

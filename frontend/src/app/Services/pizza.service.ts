@@ -11,6 +11,6 @@ export class PizzaService {
   constructor(private http: HttpClient) { }
   
   public listarPizzas() : Observable<any>{
-    return this.http.get("https://localhost:44345/pizzas/");
+    return this.http.get(("https://localhost:44345/pizzas/"), {withCredentials: true});
   }
 }

@@ -15,12 +15,15 @@ using Microsoft.EntityFrameworkCore;
 using backend.Data;
 using Pomelo.EntityFrameworkCore.MySql;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
 using backend.Services;
 
 namespace backend
 {
     public class Startup
     {
+        private readonly string _MyCors = "MyCors";
+
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
@@ -31,13 +34,7 @@ namespace backend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-            services.Configure<CookiePolicyOptions>(options =>
-            {
-                // This lambda determines whether user consent for non-essential cookies is needed for a given request.
-                options.CheckConsentNeeded = context => true;
-                options.MinimumSameSitePolicy = SameSiteMode.None;
-            });
+            services.AddCors();
 
             services.AddControllers().AddJsonOptions(options =>
             options.JsonSerializerOptions.PropertyNameCaseInsensitive = true
@@ -54,12 +51,7 @@ namespace backend
 
             services.AddScoped<SeedingService>();
             services.AddScoped<PizzaService>();
-
-            services.AddCors(options =>
-            options.AddPolicy("AllowSpecific", p => p.WithOrigins("http://localhost:4200/")
-            .AllowAnyHeader()
-            .AllowAnyMethod()
-            ));
+            services.AddScoped<ClienteService>();
 
         }
 
@@ -69,8 +61,6 @@ namespace backend
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseSwagger();
-                app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "backend v1"));
                 seedingService.Seed();
 
             }
@@ -79,19 +69,19 @@ namespace backend
 
             app.UseRouting();
 
-            app.UseAuthorization();
+            //app.UseCors(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials().SetIsOriginAllowed(_ => true).WithOrigins("http://localhost:4200"));
+            app.UseCors(x => x
+                            .AllowAnyMethod()
+                            .AllowAnyHeader()
+                            .SetIsOriginAllowed(origin => true) // allow any origin
+                            .AllowCredentials());
+
+            app.UseAuthentication();
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
-
-            app.UseCors(x => x
-            .AllowAnyOrigin()
-            .AllowAnyMethod()
-            .AllowAnyHeader());
-
-            app.UseHttpsRedirection();
         }
     }
 }
